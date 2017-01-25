@@ -14,9 +14,14 @@ for board in boardList:
     for labels in labelList:
         for label in labels['labels']:
             if label["id"] not in idList and label.has_key("name"):
-                tagList.append(label["name"].lower())
+                tagList.append(label["name"])
                 idList.append(label["id"])
 
 # Declaring my graph data structure and storing my tags inside it
 tagGraph = graph.simpleTagGraph(tagList)
+
+# Printing the adjacency matrix
 tagGraph.printGraph()
+
+#Printing Clusters
+print tagGraph.cluster()
