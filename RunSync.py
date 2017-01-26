@@ -1,9 +1,10 @@
-import urllib, json, graph
+import urllib, json, graph, cluster
 
 tagList = []
 idList = []
 
 # Get list of board IDs
+"""
 response = urllib.urlopen("https://api.trello.com/1/members/5882880821001df768e97ab1/boards?fields=id&key=802bfaebca5c1949a376ae0fa56eec6e&token=4d0d125517f9dccfd1838b32ebb1fa732b196bfcf9bdd26a66a2e3c3bac1c921")
 boardList = json.loads(response.read())
 
@@ -16,6 +17,9 @@ for board in boardList:
             if label["id"] not in idList and label.has_key("name"):
                 tagList.append(label["name"])
                 idList.append(label["id"])
+"""
+
+tagList = ["bug", "product launch", "Launch product", "error", "Bugs", "Bog", "Erreur", "product-launch"]
 
 # Declaring my graph data structure and storing my tags inside it
 tagGraph = graph.simpleTagGraph(tagList)
@@ -23,5 +27,6 @@ tagGraph = graph.simpleTagGraph(tagList)
 # Printing the adjacency matrix
 tagGraph.printGraph()
 
-#Printing Clusters
-print tagGraph.cluster()
+tagCluster = cluster.simpleStringCLuster(tagList)
+
+print tagCluster.cluster

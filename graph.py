@@ -30,34 +30,3 @@ class simpleTagGraph:
         print row_format.format("", *self.tagList)
         for tagName, row in zip(self.tagList, self.weights):
             print row_format.format(tagName +" |", *row)
-
-    # Clusters tags into distinct group by recursively searching through the graph
-    def clusterR(self, tagList, node):
-        if len(tagList) == 0:
-            return
-        else:
-            returnCluster = []
-            for i in range(len(tagList)):
-                if stringMatcher(None, node, tagList[i]).ratio() > 0.5:
-                    returnCluster.extend(tagList.pop(i))
-            for item in returnCluster:
-                returnCluster.extend(self.cluster(tagList, item))
-            return returnCluster
-
-
-    def cluster(self):
-        cluster = []
-        i = 0
-        while i < len(self.tagList):
-            subCluster = []
-            currentItem = self.tagList.pop(i)
-            subCluster.append(currentItem)
-            n = 0
-            while n < len(self.tagList):
-                if stringMatcher(None, currentItem, self.tagList[n]).ratio() > 0.5:
-                    subCluster.append(self.tagList.pop(n))
-                else:
-                    n += 1
-            cluster.append(subCluster)
-            i += 1
-        return cluster
