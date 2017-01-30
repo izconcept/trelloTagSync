@@ -3,6 +3,7 @@
  */
 
 var tagList = {};
+var cardList = {};
 
 function displayTags(tag) {
     for(var i = 0; i < tag.length; i++) {
@@ -17,21 +18,42 @@ function displayTags(tag) {
     }
 }
 
+function combineAndRemoveTags(IDtoReplace, cluster) {
+    Object.keys(cardList).forEach(function (cardID) {
+        cardList[cardID].forEach(function(labelID) {
+            if(cluster[labelID]) {
+                Trello.post('/cards/'+cardID+'/idLabels/',{value: IDtoReplace},
+                    function(response) {
+                        console.log("Tag added: " + response);
+                    }, function(response) {
+                            console.log("Error:" + response)
+                    });
+                Trello.delete('/cards/'+cardID+'/idLabels/',{value: labelID},
+                    function(response) {
+                        console.log("Tag deleted: " + response);
+                    }, function(response) {
+                        console.log("Error: " + response);
+                    });
+            }
+        });
+    });
+}
+
 
 function retrieveLabels(boards) {
-    tagList = []
     boards.forEach(function(board) {
         Trello.get('/boards/'+board['id']+'/cards?fields=labels', function(response) {
             response.forEach(function(card) {
+                cardList[card['id']] = [];
                 card["labels"].forEach(function(label) {
-                    tagList[label['id']] = label['name']
+                    tagList[label['id']] = label['name'];
+                    cardList[card['id']].push(label['id']);
                 })
             })
         }, function(response) {
             console.log("Error Retrieving Labels")
         });
     })
-    console.log(tagList);
 }
 
 function retrieveTags() {
@@ -42,7 +64,7 @@ function retrieveTags() {
     });
 }
 
-$(document).ready(function() {
+function authorize() {
     Trello.authorize({
       type: 'popup',
       name: 'TrelloSync Login',
@@ -51,17 +73,23 @@ $(document).ready(function() {
         write: 'true' },
       expiration: 'never',
       success: function(response) {
-          $("#login").remove();
+          console.log("Authenticated Succesfully");
           retrieveTags();
       },
       error: function(response) {
+          if($("#login").length < 1) {
+              $(".container").append('<p id="loginFailure">Login failed please try again</p>')
+              $(".container").append('<span id="login" onclick="authorize()">Login</span>')
+          }
           console.log("Error");
       }
     });
-    /*
-    displayTags(tagList);
+}
+$(document).ready(function() {
+    authorize();
+    //displayTags(tagList);
     $("#tags").on("click", ".tag-unique", function() {
         $(this).closest(".tag-group").children(".group-by").html("<span class='group-by-button' onclick='groupBy(this)'>Group by: "+$(this).html()+"</span>");
     })
-    */
+
 })
