@@ -4,34 +4,33 @@
     <meta charset="UTF-8">
     <title>Sync Trello Tags</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://api.trello.com/1/client.js?key=802bfaebca5c1949a376ae0fa56eec6e"></script>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <script src="tagHandler.js"></script>
 
 </head>
 <body>
 
 <div class="container" style="text-align: center;">
 
-    <h1 id="landingTitle lead">TrelloSync</h1>
+    <h1 id="landingTitle">TrelloSync</h1>
+
+    <span id="login" onclick='Trello.authenticate()'>Login</span>
 
     <!--
     <input class="login" id="login-user" placeholder="Username">
     <br/>
     <input class="login" id="login-pass" placeholder="Password">
-    -->
 
     <h1 class="lead">Grouped tags</h1>
     <div id="tags"></div>
+    -->
 
 </div>
 
-<script>
-</script>
-
-
+<script src="tagHandler.js"></script>
 
 </body>
 </html>

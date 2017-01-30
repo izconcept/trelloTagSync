@@ -1,23 +1,20 @@
 #landingTitle {
-
+    margin-top: 20px;
+    margin-bottom:40px;
 }
 
-.login {
-    text-align: center;
-    padding: 5px 0;
-    color: black;
-    width: 200px;
-    font-size: 1.55em;
-    border: 2px solid darkslategray;
-    border-radius: 3px;
-    background-color: rgba(255, 255, 255, 0.0);
-    width: 250px;
-    margin: 10px;
+#login {
+    background-color: lightgray;
+    padding: 10px;
+    border-radius:5px;
+    font-size: 1.2em;
 }
 
-.login:focus {
-    outline: none;
+#login:hover{
+    cursor:pointer;
+    color: white;
 }
+
 
 [placeholder]:focus::-webkit-input-placeholder {
   transition: opacity 0.3s ease;
