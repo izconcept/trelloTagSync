@@ -1,4 +1,6 @@
-import urllib, json, graph, cluster
+import urllib, json
+from src import cluster
+# from src import graph
 
 tagList = {}
 idList = []
@@ -17,7 +19,7 @@ for board in boardList:
             if label["id"] not in idList and label.has_key("name"):
                 tagList[label["id"]] = label["name"]
 
-print tagList;
+# print tagList;
 # tagList = ["bug", "product launch", "Launch product", "error", "Bugs", "Bog", "Erreur", "product-launch"]
 
 # Declaring my graph data structure and storing my tags inside it
@@ -31,6 +33,8 @@ tagGraph.printGraph()
 
 #Create clusters from list of labels
 tagCluster = cluster.simpleStringCLuster(tagList)
+
+print tagCluster.cluster
 
 """
 #Test cluster merging algorithm
