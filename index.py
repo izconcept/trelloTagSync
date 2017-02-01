@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+
+print """Content-type: text/html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +12,7 @@
     <script src="https://api.trello.com/1/client.js?key=802bfaebca5c1949a376ae0fa56eec6e"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.py">
 
 </head>
 <body>
@@ -17,18 +21,10 @@
 
     <h1 id="landingTitle">TrelloSync</h1>
 
-    <!--
-    <input class="login" id="login-user" placeholder="Username">
-    <br/>
-    <input class="login" id="login-pass" placeholder="Password">
-
-    <h1 class="lead">Grouped tags</h1>
-    <div id="tags"></div>
-    -->
-
 </div>
 
-<script src="tagHandler.js"></script>
+<script src="tagHandler.py"></script>
 
 </body>
 </html>
+"""

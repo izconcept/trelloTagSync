@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+
+print """
 #landingTitle {
     margin-top: 20px;
     margin-bottom:40px;
@@ -65,3 +68,4 @@
     -moz-transition: all .3s ease;
     transition: all .3s ease;
 }
+"""

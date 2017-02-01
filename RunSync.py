@@ -28,8 +28,13 @@ tagGraph = graph.simpleTagGraph(tagList)
 tagGraph.printGraph()
 
 """
+
+#Create clusters from list of labels
 tagCluster = cluster.simpleStringCLuster(tagList)
 
+"""
+#Test cluster merging algorithm
 clusterToGroup = tagCluster.cluster[1]
 
 tagCluster.groupTags('58828975ced82109ffdea7f5', clusterToGroup)
+"""

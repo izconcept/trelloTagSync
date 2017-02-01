@@ -1,4 +1,6 @@
+#!/usr/bin/env python
 
+print """
 var cardList = {};
 var tagCluster;
 
@@ -131,3 +133,4 @@ function displayTags() {
         }
     }
 }
+"""
