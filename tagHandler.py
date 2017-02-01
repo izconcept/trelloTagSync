@@ -1,16 +1,16 @@
-/**
- * Created by Kevin Zhang on 2017-01-26.
- */
+#!/usr/bin/env python
 
+print """
+var dataString = "";
 var tagList = {};
 var cardList = {};
 
 $(document).ready(function() {
     //Call login script
     authorize();
-    //displayTags(tagList);
-    $("#tags").on("click", ".tag-unique", function() {
-        $(this).closest(".tag-group").children(".group-by").html("<span class='group-by-button' onclick='groupBy(this)'>Group by: "+$(this).html()+"</span>");
+    $(".container").on("click", ".tag-unique", function() {
+        $(this).closest(".tag-group").children(".group-by").html("<span class='group-by-button'>Group by: "+$(this).html()+"</span>");
+        //onclick='groupBy(this)'
     })
 
 })
@@ -49,12 +49,15 @@ function retrieveTags() {
                     counter++;
                     cardList[card['id']] = [];
                     card["labels"].forEach(function(label) {
-                        tagList[label['id']] = label['name'];
+                        if(!tagList[label['id']]){
+                            dataString += label['id'] + "=" + label['name'] + "&";
+                        }
+                        tagList[label['id']] = label['name']
                         cardList[card['id']].push(label['id']);
+                        if(counter == 10) {
+                            generateTagClusters();
+                        }
                     });
-                    if(counter >= response.length) {
-                        generateTagClusters();
-                    }
                 })
             }, function(response) {
                 console.log("Error Retrieving Labels: " + response)
@@ -87,31 +90,35 @@ function combineAndRemoveTags(IDtoReplace, cluster) {
     });
 }
 
-//Primitive tag grouping function
+//Calls python clustering functionality
 function generateTagClusters() {
+    console.log(dataString)
     $.ajax({
         url: "groupTags.py",
-        data: JSON.stringify(tagList),
         type: "POST",
-        dataType: "json",
+        data: dataString,
         success: function(response) {
-            console.log(response);
+            console.log("SUCCESS")
+            console.log(response)
+            displayTags(response);
         },
         error: function(response) {
+            console.log("ERROR");
             console.log(response);
         }
     })
 }
 
 function displayTags(tag) {
+    $(".container").append('<h1 class="lead">Grouped tags</h1><div id="tags"></div>')
     for(var i = 0; i < tag.length; i++) {
         $("#tags").append("<div class='tag-group' id='group-"+i+"'></div>");
-        tag[i].forEach(function(uniqueTag) {
-            console.log(uniqueTag)
+        Object.values(tag[i]).forEach(function(uniqueTag) {
             $("#group-"+i).append("<span class='tag-unique'>"+uniqueTag+"</span>");
         })
-        if(tag[i].length > 1) {
+        if(Object.values(tag[i]).length > 1) {
             $("#group-"+i).append("<p class='group-by' id='group-by-'"+i+"></p>");
         }
     }
 }
+"""

@@ -1,0 +1,71 @@
+#!/usr/bin/env python
+
+print """
+#landingTitle {
+    margin-top: 20px;
+    margin-bottom:40px;
+}
+
+#login {
+    background-color: lightgray;
+    padding: 10px;
+    border-radius:5px;
+    font-size: 1.2em;
+}
+
+#login:hover{
+    cursor:pointer;
+    color: white;
+}
+
+
+[placeholder]:focus::-webkit-input-placeholder {
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.tag-unique {
+    font-size: 1.3em;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid darkslategray;
+    border-radius: 5px;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.tag-unique:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.tag-group {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius:5px;
+}
+
+.group-by {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.group-by-button {
+    font-size: 1.3em;
+    padding: 5px;
+    border: 1px solid darkslategray;
+    border-radius:5px;
+    background-color: rgba(0,0,0,0.1)
+}
+
+.group-by-button:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+}
+"""

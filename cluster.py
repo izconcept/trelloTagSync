@@ -35,8 +35,6 @@ class simpleStringCLuster:
                         print r2.text
 
 
-
-
     # Clusters tags into distinct group by recursively searching through the graph
     def clusterR(self, tagList, node):
         if len(tagList) == 0:
