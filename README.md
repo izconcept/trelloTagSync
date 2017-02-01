@@ -4,11 +4,39 @@ A web application built on the Trello API that identifies similar tags and allow
 
 ## How to run
 
+There are two ways to run the application. One is through a command line application and the other is via a web application.
+
+### Command Line Application
+
 Traverse to the correct directory and invoke the Python interpreter.
 
 ```
 python RunSync.py
 ```
+
+### Web Application
+
+The web application executes via a simple CGI python web server. Once the web server is started, you can access the index page locally.
+
+First we need to give executible permissions to all the CGI python scripts.
+Navigate to the correct directory and
+
+```
+$ chmod +x index.py
+$ chmod +x style.py
+$ chmod +x tagHandler.py
+$ chmod +x server.py
+$ chmod +x groupTags.py
+```
+
+Next start the server by calling the server script
+
+```
+python server.py
+```
+
+The application is now ready to use by navigating to http://localhost:8000/index.py
+
 
 ## Built With
 
