@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d24bfdf9-e476-4c6f-b868-8f1d0b878c90" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RunSync.py" afterPath="$PROJECT_DIR$/RunSync.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tagHandler.py" afterPath="$PROJECT_DIR$/tagHandler.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,7 +20,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RunSync.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RunSync.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RunSync.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="540">
@@ -56,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tagHandler.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tagHandler.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tagHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-690">
-              <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+            <state relative-caret-position="675">
+              <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -104,10 +102,10 @@
         <option value="$PROJECT_DIR$/style.py" />
         <option value="$PROJECT_DIR$/cluster.py" />
         <option value="$PROJECT_DIR$/index.py" />
-        <option value="$PROJECT_DIR$/tagHandler.py" />
         <option value="$PROJECT_DIR$/groupTags.py" />
         <option value="$PROJECT_DIR$/tagHandler.js" />
         <option value="$PROJECT_DIR$/RunSync.py" />
+        <option value="$PROJECT_DIR$/tagHandler.py" />
       </list>
     </option>
   </component>
@@ -637,14 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tagHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-690">
-          <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -660,6 +650,14 @@
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tagHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

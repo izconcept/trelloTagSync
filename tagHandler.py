@@ -80,7 +80,7 @@ function combineAndRemoveTags(IDtoReplace, clusterNumber) {
                 console.log("Added: " + IDtoReplace);
                 delete tagCluster[clusterNumber][labelID];
                 displayTags()
-                /*
+
                 Trello.post('/cards/'+cardID+'/idLabels/',{value: IDtoReplace},
                     function(response) {
                         console.log("Tag added: " + response);
@@ -93,7 +93,7 @@ function combineAndRemoveTags(IDtoReplace, clusterNumber) {
                     }, function(response) {
                         console.log("Error: " + response);
                     });
-                    */
+
             }
         });
     });
