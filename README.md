@@ -35,7 +35,7 @@ Next start the server by calling the server script
 python server.py
 ```
 
-The application is now ready to use by navigating to http://localhost:8000/index.py
+The application is now ready to use by navigating to [http://localhost:8000/index.py](http://localhost:8000/index.py).
 
 
 ## Built With
