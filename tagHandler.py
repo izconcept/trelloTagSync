@@ -10,9 +10,6 @@ $(document).ready(function() {
     $(".container").on("click", ".tag-unique", function() {
         var id = $(this).data("tagid");
         var clusterNumber = $(this).data("group");
-        name = "kevin"
-        text = "das"
-        //alert("<a href='javascript:void(0)' onClick='showField(\'" + name + "\',\'" + text + "\');'>Edit</a>");
         $(this).closest(".tag-group").children(".group-by").html("<span class='group-by-button' onclick='combineAndRemoveTags(&quot;" + id + "&quot;,"+clusterNumber+")'>Group by: "+$(this).html()+"</span>");
     })
 
@@ -81,6 +78,8 @@ function combineAndRemoveTags(IDtoReplace, clusterNumber) {
             if(cluster[labelID] && labelID != IDtoReplace) {
                 console.log("Removed: " + labelID);
                 console.log("Added: " + IDtoReplace);
+                delete tagCluster[clusterNumber][labelID];
+                displayTags()
                 /*
                 Trello.post('/cards/'+cardID+'/idLabels/',{value: IDtoReplace},
                     function(response) {
@@ -109,9 +108,9 @@ function generateTagClusters(dataString) {
         data: dataString,
         success: function(response) {
             console.log("SUCCESS");
+            //console.log(response);
             tagCluster = response;
-            console.log(response);
-            displayTags(response);
+            displayTags();
         },
         error: function(response) {
             console.log("ERROR");
@@ -120,8 +119,10 @@ function generateTagClusters(dataString) {
     })
 }
 
-function displayTags(tag) {
-    $(".container").append('<h1 class="lead">Grouped tags</h1><div id="tags"></div>')
+function displayTags() {
+    $("#tags").remove();
+    tag = tagCluster;
+    $(".container").append('<div id="tags"><h1 class="lead">Grouped tags</h1></div>')
     for(var i = 0; i < tag.length; i++) {
         $("#tags").append("<div class='tag-group' id='group-"+i+"'></div>");
         Object.keys(tag[i]).forEach(function(id) {
