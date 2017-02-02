@@ -80,20 +80,22 @@ function combineAndRemoveTags(IDtoReplace, clusterNumber) {
                 console.log("Added: " + IDtoReplace);
                 delete tagCluster[clusterNumber][labelID];
                 displayTags()
-
-                Trello.post('/cards/'+cardID+'/idLabels/',{value: IDtoReplace},
-                    function(response) {
-                        console.log("Tag added: " + response);
-                    }, function(response) {
-                            console.log("Error:" + response)
-                    });
-                Trello.delete('/cards/'+cardID+'/idLabels/',{value: labelID},
+                if(jQuery.inArray(IDtoReplace, cardList[cardID]) == -1) {
+                    Trello.post('/cards/'+cardID+'/idLabels/',{value: IDtoReplace},
+                        function(response) {
+                            console.log("Tag added: " + response);
+                        }, function(response) {
+                            console.log("Error:")
+                            console.log(response);
+                        });
+                }
+                Trello.delete('/cards/'+cardID+'/idLabels/'+labelID,
                     function(response) {
                         console.log("Tag deleted: " + response);
                     }, function(response) {
-                        console.log("Error: " + response);
+                        console.log("Error");
+                        console.log(response);
                     });
-
             }
         });
     });
